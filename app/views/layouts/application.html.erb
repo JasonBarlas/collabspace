@@ -24,6 +24,12 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5 flex">
+      <% flash.each do |key, message| %>
+        <div class="p-4 mb-4 text-white rounded-md shadow-md <%= key == 'notice' ? 'bg-green-500' : 'bg-red-500' %>">
+          <%= message %>
+        </div>
+      <% end %>
+
       <%= yield %>
     </main>
   </body>
