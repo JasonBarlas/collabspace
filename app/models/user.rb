@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   # Validations
   validates :username, presence: true, length: { minimum: 4, maximum: 16 }, uniqueness: false
+
+  has_many :posts, dependent: :destroy
 end
