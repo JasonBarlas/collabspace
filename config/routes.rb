@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :posts do
+    collection do
+      get ':category', to: 'posts#category', as: 'category'
+    end
+  end
+  
   devise_for :users, controllers: { 
     sessions: "users/sessions",
     registrations: "users/registrations"
