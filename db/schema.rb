@@ -15,16 +15,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_03_131208) do
   enable_extension "pg_catalog.plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
+    t.string "title", default: "", null: false
+    t.text "content", default: "", null: false
     t.bigint "category_id"
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_posts_on_category_id"
