@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
   def index
     @content_option = params[:content_option] || "posts"
+
+    @new_post = Post.new
+
     posts = Post.all
     @posts = PostFilterService.new(posts, filter_params).call
   end

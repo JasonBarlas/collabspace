@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get "pages", to: "pages#index", as: "pages"
   get "posts/:id", to: "posts#show", as: "post"
-  
+
+  resources :posts, only: [:create]
+
   devise_for :users, controllers: { 
     sessions: "users/sessions",
     registrations: "users/registrations"

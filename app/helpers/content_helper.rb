@@ -1,7 +1,7 @@
 module ContentHelper
-  def content_display_partial_path(content_option, posts = nil)
+  def content_display_partial_path(content_option, posts = nil, new_post = nil)
     if content_option == "new"
-      "content/content_display/new_display"
+      { partial: "content/content_display/new_display", locals: { new_post: new_post } }
     elsif content_option == "posts"
       { partial: "content/content_display/posts_display", locals: { posts: posts } }
     elsif content_option == "filters"
