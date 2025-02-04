@@ -11,5 +11,7 @@
     </p>
   </div>
 
-  <%= link_to "Read Post", post_path(post.id), class: "text-center text-indigo-600 font-medium hover:underline block mt-2" %>
+  <%= button_tag "Read Post", 
+    class: "read-post-btn text-center text-indigo-600 font-medium hover:underline block mt-2",
+    data: { id: post.id } %>
 </div>
