@@ -1,0 +1,15 @@
+<div class="h-40 w-60 bg-white rounded-xl shadow-lg flex flex-col p-2 overflow-hidden" id="<%= post_path(post.id) %>">
+  <h3 class="text-lg font-semibold text-gray-900 text-center truncate">
+    <%= truncate(post.title, length: 50) %>
+  </h3>
+  
+  <div class="flex-1 overflow-auto text-sm">
+    <h4 class="font-medium text-gray-700">Author: <%= post.user.username %></h4>
+    <h4 class="font-medium text-gray-700">Category: <%= post.category.name %></h4> 
+    <p class="truncate">
+      <%= truncate(post.content, length: 100) %>
+    </p>
+  </div>
+
+  <%= link_to "Read Post", post_path(post.id), class: "text-center text-indigo-600 font-medium hover:underline block mt-2" %>
+</div>

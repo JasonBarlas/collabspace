@@ -1,2 +1,7 @@
-<div class="h-full bg-white rounded-xl shadow-lg flex flex-col p-8">
+<div class="h-full max-h-full bg-white rounded-xl shadow-lg flex flex-col p-8 content-container overflow-y-auto">
+  <div class="posts-grid flex flex-wrap gap-4">
+    <% posts.each do |post| %>
+      <%= render 'posts/post', post: post %>
+    <% end %>
+  </div>
 </div>
