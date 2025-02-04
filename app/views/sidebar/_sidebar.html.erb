@@ -2,8 +2,13 @@
   <h2 class="text-2xl font-bold text-center text-gray-900 py-6">Collabspace</h2>
   
   <div class="flex flex-col space-y-4">
-    <%= button_to "Log Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "w-full border border-indigo-600 text-indigo-600 font-medium px-6 py-4 rounded-lg transition-colors hover:bg-indigo-600 hover:text-white" %>
-
+    <%= link_to "New +", pages_path(content_option: "new"), class: "w-full border border-indigo-600 text-indigo-600 font-medium px-6 py-4 rounded-lg transition-colors hover:bg-indigo-600 hover:text-white" %>
+    <%= link_to "Posts", pages_path(content_option: "posts"), class: "w-full border border-indigo-600 text-indigo-600 font-medium px-6 py-4 rounded-lg transition-colors hover:bg-indigo-600 hover:text-white" %>
+    <%= link_to "Filters", pages_path(content_option: "filters"), class: "w-full border border-indigo-600 text-indigo-600 font-medium px-6 py-4 rounded-lg transition-colors hover:bg-indigo-600 hover:text-white" %>
+    <%= link_to "Chats", pages_path(content_option: "chats"), class: "w-full border border-indigo-600 text-indigo-600 font-medium px-6 py-4 rounded-lg transition-colors hover:bg-indigo-600 hover:text-white" %>
+    <%= link_to "Friends", pages_path(content_option: "friends"), class: "w-full border border-indigo-600 text-indigo-600 font-medium px-6 py-4 rounded-lg transition-colors hover:bg-indigo-600 hover:text-white" %>
+    <%= link_to "Profile", pages_path(content_option: "profile"), class: "w-full border border-indigo-600 text-indigo-600 font-medium px-6 py-4 rounded-lg transition-colors hover:bg-indigo-600 hover:text-white" %>
+    <%= link_to "Notifications", class: "w-full border border-indigo-600 text-indigo-600 font-medium px-6 py-4 rounded-lg transition-colors hover:bg-indigo-600 hover:text-white" %>
     <%= button_to "Log Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "w-full border border-indigo-600 text-indigo-600 font-medium px-6 py-4 rounded-lg transition-colors hover:bg-indigo-600 hover:text-white" %>
   </div>
 </div>

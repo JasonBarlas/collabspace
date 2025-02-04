@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "pages", to: "pages#index", as: "pages"
   get "posts/:id", to: "posts#show", as: "post"
   
   devise_for :users, controllers: { 
