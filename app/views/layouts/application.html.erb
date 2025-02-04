@@ -23,14 +23,19 @@
   </head>
 
   <body>
-    <main class="container mx-auto px-5 flex flex-col items-center justify-center min-h-screen">
+    <main class="h-screen w-screen">
+
+      <!-- Flash messages -->
       <% flash.each do |key, message| %>
-        <div class="p-4 mb-4 text-white rounded-md shadow-md <%= key == 'notice' ? 'bg-green-500' : 'bg-red-500' %>">
+        <div id="flash-message" class="fixed top-0 left-1/2 transform -translate-x-1/2 w-96 p-4 mt-4 text-center text-white rounded-md shadow-md
+            <%= key == 'notice' ? 'bg-green-500' : 'bg-red-500' %>">
           <%= message %>
         </div>
       <% end %>
 
-      <%= yield %>
+      <div class="h-full w-full">
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>
