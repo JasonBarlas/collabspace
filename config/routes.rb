@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "posts/:id", to: "posts#show", as: "post"
 
   resources :posts, only: [:create]
+  resources :friendships, only: [:create]
 
   devise_for :users, controllers: { 
     sessions: "users/sessions",

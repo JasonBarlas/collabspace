@@ -3,7 +3,15 @@
     <%= render "sidebar/sidebar" %>
   </div>
   <div class="flex-1 mt-8 mr-8 mb-8 ml-4">
-    <%= render "content/content", content_option: @content_option, posts: @posts, new_post: @new_post %>
+    <%= render "content/content", 
+      content_option: @content_option, 
+      new_post: @new_post, 
+      categories: @categories, 
+      posts: @posts, 
+      new_friendship: @new_friendship, 
+      friends: @friends, 
+      non_friends: @non_friends 
+    %>
   </div>
   <%= render "posts/modal" %>
 </div>

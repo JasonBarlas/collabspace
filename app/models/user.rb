@@ -16,4 +16,14 @@ class User < ApplicationRecord
   # Reverse friendships (for mutual friendships)
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
   has_many :inverse_friends, through: :inverse_friendships, source: :user
+
+  # Combine all friends
+  def all_friends
+    friends + inverse_friends
+  end
+
+  # Retrieve all non-friends
+  def all_non_friends
+    User.where.not(id: all_friends.map(&:id) + [id])
+  end
 end

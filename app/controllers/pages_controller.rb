@@ -3,9 +3,13 @@ class PagesController < ApplicationController
     @content_option = params[:content_option] || "posts"
 
     @new_post = Post.new
+    @categories = Category.all
 
-    posts = Post.all
-    @posts = PostFilterService.new(posts, filter_params).call
+    @posts = PostFilterService.new(Post.all, filter_params).call
+
+    @new_friendship = Friendship.new
+    @friends = current_user.all_friends
+    @non_friends = current_user.all_non_friends
   end
 
   private
