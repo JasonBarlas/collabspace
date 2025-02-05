@@ -1,5 +1,5 @@
 <div class="posts-grid flex flex-wrap gap-4">
   <% posts.each do |post| %>
-    <%= render "posts/post", post: post %>
+    <%= render partial: "content/content_display/posts_display/post", locals: { post: post } %>
   <% end %>
 </div>
