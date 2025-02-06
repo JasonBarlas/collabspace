@@ -15,14 +15,16 @@ module PostFilters
     private
 
     def filter_by_users
-      if @filters[:user_ids].present?
-        @posts = @posts.where(user_id: @filters[:user_ids])
+      if @filters[:usernames].present?
+        user_ids = User.where(username: @filters[:usernames]).pluck(:id)
+        @posts = @posts.where(user_id: user_ids)
       end
     end
 
     def filter_by_categories
-      if @filters[:category_ids].present?
-        @posts = @posts.where(category_id: @filters[:category_ids])
+      if @filters[:categories].present?
+        category_ids = Category.where(name: @filters[:categories]).pluck(:id)
+        @posts = @posts.where(category_id: category_ids)
       end
     end
 

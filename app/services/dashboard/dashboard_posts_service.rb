@@ -7,14 +7,8 @@ module Dashboard
 
     def call
       { 
-        posts: PostFilters::PostFiltersService.new(Post.all, filter_params).call 
+        posts: PostFilters::PostFiltersService.new(Post.all, @params).call 
       }
-    end
-
-    private
-
-    def filter_params
-      @params.permit(user_ids: [], category_ids: [], title: nil)
     end
   end
 

@@ -5,7 +5,7 @@ module ContentHelper
     elsif content_option == "posts"
       { partial: "content/content_display/posts_display", locals: { posts: dashboard[:posts] } }
     elsif content_option == "filters"
-      "content/content_display/filters_display"
+      { partial: "content/content_display/filters_display", locals: { categories: dashboard[:categories] } }
     elsif content_option == "chats"
       "content/content_display/chats_display"
     elsif content_option == "friends"

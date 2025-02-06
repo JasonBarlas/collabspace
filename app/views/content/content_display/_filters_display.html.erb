@@ -1,0 +1,37 @@
+<h1 class="text-2xl font-bold mb-4">Filter Posts</h1>
+
+<!-- Usernames Section -->
+<div class="mb-3">
+  <label for="usernames" class="block text-lg font-semibold">Username Filter</label>
+  <div class="flex gap-4 mt-2">
+    <input type="text" id="usernames" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600">
+    <button id="add-user" class="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700">Add</button>
+  </div>
+  <ul id="user-list" class="mt-4 list-disc list-inside text-gray-600"></ul>
+</div>
+
+<!-- Categories Section -->
+<div class="mb-3">
+  <label for="categories" class="block text-lg font-semibold">Category Filter</label>
+  <div class="flex gap-4 mt-2">
+    <select id="categories" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600">
+      <%= tag.option(nil, value: nil) %>
+      <% categories.each do |category| %>
+        <%= tag.option(category.name, value: category.name) %>
+      <% end %>
+    </select>
+    <button id="add-category" class="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700">Add</button>
+  </div>
+  <ul id="category-list" class="mt-4 list-disc list-inside text-gray-600"></ul>
+</div>
+
+<!-- Title Section -->
+<div class="mb-4">
+  <label for="title" class="block text-lg font-semibold">Title Filter</label>
+  <input type="text" id="title" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600">
+</div>
+
+<!-- Dynamic Link -->
+<div>
+  <a id="result-link" href="#" class="block py-3 px-6 bg-indigo-600 text-white font-semibold rounded-lg text-center hover:bg-indigo-700">Search</a>
+</div>
