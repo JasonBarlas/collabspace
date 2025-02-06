@@ -17,6 +17,10 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
   has_many :inverse_friends, through: :inverse_friendships, source: :user
 
+  has_many :chat_users, class_name: "Text::ChatUser"
+  has_many :chatrooms, through: :chat_users, source: :chatroom, class_name: "Text::Chatroom"
+  has_many :messages, class_name: "Text::Message"
+
   # Combine all friends
   def all_friends
     friends + inverse_friends
