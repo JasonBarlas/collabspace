@@ -16,5 +16,5 @@ class PagesController < ApplicationController
     permitted[:categories] ||= []
 
     permitted
-  end  
+  end
 end
