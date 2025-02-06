@@ -13,7 +13,7 @@ module ContentHelper
     elsif content_option == "profile"
       "content/content_display/profile_display"
     else
-      "content/content_display/default_display"
+      "shared/empty_partial"
     end
   end
 end

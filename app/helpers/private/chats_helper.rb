@@ -1,0 +1,2 @@
+module Private::ChatsHelper
+end
