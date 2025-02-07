@@ -2,11 +2,6 @@ import consumer from "channels/consumer"
 
 document.addEventListener('turbo:load', function() {
 
-  const currentChatroom = document.getElementById("chatroom-id").dataset.chatroomId;
-  if (!currentChatroom) {
-    return;
-  }
-
   consumer.subscriptions.create("NotificationChannel", {
     connected() {
       // Called when the subscription is ready for use on the server
@@ -17,9 +12,16 @@ document.addEventListener('turbo:load', function() {
     },
 
     received(data) {
-      if (String(data.chatroom_id) !== String(currentChatroom)) {
-        alert(data.notification);
+      const currentChatroom = document.getElementById("chatroom-id");
+      if (currentChatroom) {
+        const currentChatroomId = currentChatroom.dataset.chatroomId;
+        console.log(String(data.chatroom_id) + String(currentChatroomId));
+        if (String(data.chatroom_id) === String(currentChatroomId)) {
+          console.log("return");
+          return;
+        }
       }
+      alert(data.notification);
     }
   });
 });
