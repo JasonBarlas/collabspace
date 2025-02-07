@@ -7,7 +7,7 @@ module ContentHelper
     elsif content_option == "filters"
       { partial: "content/content_display/filters_display", locals: { categories: dashboard[:categories] } }
     elsif content_option == "chats"
-      "content/content_display/chats_display"
+      { partial: "content/content_display/chats_display", locals: { new_chat_user: dashboard[:new_chat_user], chatrooms: dashboard[:chatrooms], friends: dashboard[:friends] } }
     elsif content_option == "friends"
       { partial: "content/content_display/friends_display", locals: { new_friendship: dashboard[:new_friendship], friends: dashboard[:friends], non_friends: dashboard[:non_friends] } }
     elsif content_option == "profile"

@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find(show_params[:id])
     render json: { title: @post.title, content: @post.content }
   end
 
   def create
-    @post = current_user.posts.build(post_params)
+    @post = current_user.posts.build(permitted_params)
     if @post.save
       flash[:notice] = "Post was successfully created."
       redirect_to pages_path(content_option: "posts")
@@ -17,7 +17,11 @@ class PostsController < ApplicationController
 
   private
 
-  def post_params
+  def permitted_params
     params.require(:post).permit(:title, :content, :category_id)
+  end
+
+  def show_params
+    params.permit(:id)
   end
 end

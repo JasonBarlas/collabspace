@@ -10,6 +10,8 @@ module Dashboard
         new_post:       new_service[:new_post], 
         categories:     new_service[:categories], 
         posts:          posts_service[:posts], 
+        new_chat_user:  chats_service[:new_chat_user], 
+        chatrooms:      chats_service[:chatrooms], 
         new_friendship: friends_service[:new_friendship], 
         friends:        friends_service[:friends], 
         non_friends:    friends_service[:non_friends] 
@@ -24,6 +26,10 @@ module Dashboard
 
     def posts_service
       @posts_service ||= DashboardPostsService.new(@user, @params).call
+    end
+
+    def chats_service
+      @chats_service ||= DashboardChatsService.new(@user, @params).call
     end
 
     def friends_service

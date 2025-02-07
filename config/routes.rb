@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   resources :posts, only: [:create]
   resources :friendships, only: [:create]
 
+  namespace :text do
+    resources :chatrooms, only: [:create]
+    resources :chat_users, only: [:create]
+  end
+
   devise_for :users, controllers: { 
     sessions: "users/sessions",
     registrations: "users/registrations"

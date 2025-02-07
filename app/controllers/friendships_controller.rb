@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   def create
-    @friendship = current_user.friendships.build(friendship_params)
+    @friendship = current_user.friendships.build(permitted_params)
     if @friendship.save
       flash[:notice] = "Friend added successfully."
       redirect_to pages_path(content_option: "friends")
@@ -12,7 +12,7 @@ class FriendshipsController < ApplicationController
 
   private
 
-  def friendship_params
+  def permitted_params
     params.require(:friendship).permit(:friend_id)
   end
 end

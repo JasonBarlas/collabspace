@@ -1,0 +1,16 @@
+<div class="p-6 border border-gray-300 rounded-lg mb-4">
+  <!-- Chatroom Header -->
+  <h2 class="text-xl font-bold mb-4"> New Chatroom </h2>
+
+  <!-- Create Chatroom -->
+  <%= form_with model: new_chat_user, local: true do |form| %>
+
+    <!-- Hidden Fields -->
+    <%= form.hidden_field :chatroom_id, value: "" %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+
+    <div>
+      <%= form.submit "Create Chatroom", class: "w-full py-3 px-6 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" %>
+    </div>
+  <% end %>
+</div>

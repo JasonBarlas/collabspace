@@ -1,0 +1,6 @@
+<div class="gap-4">
+  <%= render partial: "content/content_display/chats_display/new_chatroom", locals: { new_chat_user: new_chat_user } %>
+  <% chatrooms.each_with_index do |chatroom, index| %>
+    <%= render partial: "content/content_display/chats_display/chatroom", locals: { chatroom_name: "Chatroom ##{index + 1}", new_chat_user: new_chat_user, chatroom: chatroom, friends: friends } %>
+  <% end %>
+</div>
