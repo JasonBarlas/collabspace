@@ -8,7 +8,6 @@
     <%= link_to "Chats", pages_path(content_option: "chats"), class: "w-full border border-indigo-600 text-indigo-600 font-medium px-6 py-4 rounded-lg transition-colors hover:bg-indigo-600 hover:text-white block text-center" %>
     <%= link_to "Friends", pages_path(content_option: "friends"), class: "w-full border border-indigo-600 text-indigo-600 font-medium px-6 py-4 rounded-lg transition-colors hover:bg-indigo-600 hover:text-white block text-center" %>
     <%= link_to "Profile", pages_path(content_option: "profile"), class: "w-full border border-indigo-600 text-indigo-600 font-medium px-6 py-4 rounded-lg transition-colors hover:bg-indigo-600 hover:text-white block text-center" %>
-    <%= link_to "Notifications", class: "w-full border border-indigo-600 text-indigo-600 font-medium px-6 py-4 rounded-lg transition-colors hover:bg-indigo-600 hover:text-white block text-center" %>
     <%= button_to "Log Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "w-full border border-indigo-600 text-indigo-600 font-medium px-6 py-4 rounded-lg transition-colors hover:bg-indigo-600 hover:text-white block text-center" %>  
   </div>
 </div>
