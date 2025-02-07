@@ -4,7 +4,6 @@
 
   <!-- Create Chatroom -->
   <%= form_with model: new_chat_user, local: true do |form| %>
-
     <!-- Hidden Fields -->
     <%= form.hidden_field :chatroom_id, value: "" %>
     <%= form.hidden_field :user_id, value: current_user.id %>
