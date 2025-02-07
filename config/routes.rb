@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   namespace :text do
     resources :chatrooms, only: [:create]
     resources :chat_users, only: [:create]
+    resources :chatrooms, only: [:show] do
+      post 'create_message', on: :member
+    end
   end
 
   devise_for :users, controllers: { 

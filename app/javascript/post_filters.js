@@ -12,18 +12,15 @@ document.addEventListener('turbo:load', function () {
   const userList = document.getElementById("user-list");
   const categoryList = document.getElementById("category-list");
 
-  // Return early if required elements are not present
   if (!addUserButton || !addCategoryButton || !resultLink || !usernamesInput || !categoriesSelect || !titleInput) {
     return;
   }
 
-  // Add usernames to hash
   addUserButton.addEventListener("click", () => {
     const username = usernamesInput.value.trim();
     if (username && !userHash[username]) {
       userHash[username] = true;
 
-      // Update UI
       const li = document.createElement("li");
       li.textContent = username;
       userList.appendChild(li);
@@ -33,13 +30,11 @@ document.addEventListener('turbo:load', function () {
     }
   });
 
-  // Add categories to hash
   addCategoryButton.addEventListener("click", () => {
     const category = categoriesSelect.value;
     if (category && !categoryHash[category]) {
       categoryHash[category] = true;
 
-      // Update UI
       const li = document.createElement("li");
       li.textContent = category;
       categoryList.appendChild(li);
@@ -48,7 +43,6 @@ document.addEventListener('turbo:load', function () {
     }
   });
 
-  // Update the link dynamically
   function updateLink() {
     const usernames = Object.keys(userHash);
     const categories = Object.keys(categoryHash);
@@ -57,6 +51,5 @@ document.addEventListener('turbo:load', function () {
     resultLink.href = `/pages?content_option=posts&usernames=${JSON.stringify(usernames)}&categories=${JSON.stringify(categories)}&title=${encodeURIComponent(title)}`;
   }
 
-  // Update link on title change
   titleInput.addEventListener("input", updateLink);
 });

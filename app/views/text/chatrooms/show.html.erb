@@ -1,0 +1,17 @@
+<div id="chatroom-id" data-chatroom-id="<%= @chatroom.id %>">
+  <div id="messages-container">
+    <% if @chatroom.messages.any? %>
+      <% @chatroom.messages.each do |message| %>
+        <div><%= message.user.username %>: <%= message.content %></div>
+      <% end %>
+    <% else %>
+      <div>Chatroom <%= @chatroom.id %></div>
+    <% end %>
+  </div>
+
+  <input id="message-input" type="text" placeholder="Type a message">
+  <button id="send-button">Send</button>
+</div>
+
+<!-- Hidden element to store the current user's ID -->
+<div id="user-id" data-user-id="<%= current_user.id %>" style="display: none;"></div>

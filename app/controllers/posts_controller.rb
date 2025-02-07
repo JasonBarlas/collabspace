@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def show
-    @post = Post.find(show_params[:id])
+    @post = Post.find(params[:id])
     render json: { title: @post.title, content: @post.content }
   end
 
@@ -19,9 +19,5 @@ class PostsController < ApplicationController
 
   def permitted_params
     params.require(:post).permit(:title, :content, :category_id)
-  end
-
-  def show_params
-    params.permit(:id)
   end
 end
