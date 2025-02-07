@@ -38,6 +38,12 @@ class ChatroomChannel < ApplicationCable::Channel
 
     if message.persisted?
       ChatroomChannel.broadcast_to(@chatroom, { message: message.content, user_id: message.user.username })
+      
+      @chatroom.users.each do |user|
+        if user.id != current_user.id
+          NotificationChannel.broadcast_to(user, { notification: "New message in Chatroom #{@chatroom.id}", chatroom_id: @chatroom.id })
+        end
+      end
     else
       transmit_error("Message could not be saved. #{message.errors.full_messages.join(', ')}")
     end

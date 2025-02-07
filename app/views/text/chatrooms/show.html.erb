@@ -1,5 +1,5 @@
-<div id="chatroom-id" data-chatroom-id="<%= @chatroom.id %>" class="flex flex-col h-full bg-white rounded-lg shadow-lg max-w-xl mx-auto p-4">
-  <!-- Messages container: Scrollable -->
+<div id="chatroom-id" data-chatroom-id="<%= @chatroom.id %>" class="flex flex-col h-screen bg-white rounded-lg shadow-lg max-w-xl mx-auto p-4">
+  <!-- Messages Container -->
   <div id="messages-container" class="flex-1 overflow-y-auto p-4 bg-gray-100 rounded-lg mb-4">
     <% if @chatroom.messages.any? %>
       <% @chatroom.messages.each do |message| %>
@@ -13,10 +13,10 @@
     <% end %>
   </div>
 
-  <!-- Message input and send button: Fixed at the bottom -->
+  <!-- Message Input and Send Button -->
   <div class="flex items-center mt-1">
-    <input id="message-input" type="text" placeholder="Type a message" class="flex-[1] flex-1 p-3 bg-gray-200 text-gray-700 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all" />
-    <button id="send-button" class="ml-4 px-6 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors">Send</button>
+    <input id="message-input" type="text" placeholder="Type a message" class="flex-[1] p-3 bg-gray-200 text-gray-700 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all" />
+    <button id="send-button" class="ml-4 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors">Send</button>
   </div>
 </div>
 

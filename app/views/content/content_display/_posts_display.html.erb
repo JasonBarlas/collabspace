@@ -1,3 +1,7 @@
+<div class="flex justify-center items-center h-screen">
+  <h1 class="text-2xl font-bold mb-4 underline">Main Feed</h1>
+</div>
+
 <div class="posts-grid flex flex-wrap gap-4">
   <% posts.each do |post| %>
     <%= render partial: "content/content_display/posts_display/post", locals: { post: post } %>
