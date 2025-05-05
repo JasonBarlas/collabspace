@@ -63,7 +63,7 @@ group :development do
 end
 
 
-gem "tailwindcss-ruby", "~> 4.0"
+gem "tailwindcss-ruby", "~> 4.1"
 
 gem "devise", "~> 4.9"
 
